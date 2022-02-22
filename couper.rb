@@ -2,23 +2,21 @@ class Couper < Formula
     desc "Couper is a lightweight open source API gateway designed to support developers in building and running API-driven Web projects."
     homepage "https://couper.io/"
     license "MIT"
-    version "v1.7.0"
+    version "v1.7.1"
     head "https://github.com/avenga/couper.git", branch: "master"
-
-    #depends_on "go" => :build
 
     on_macos do
       if Hardware::CPU.arm?
-        url "https://github.com/avenga/couper/releases/download/v1.7.0/couper-v1.7.0-macos-arm64.zip"
-        sha256 "47f283b547af22f83c891099f827d5127e67e2def0f54fdd16cce0d3039ab0fe"
+        url "https://github.com/avenga/couper/releases/download/v1.7.1/couper-v1.7.1-macos-arm64.zip"
+        sha256 "f4aba245dea2d7c730db64abcf82b41ecafe1b4f559c444d7adb1c5c2c314fab"
 
         def install
           bin.install "couper"
         end
       end
       if Hardware::CPU.intel?
-        url "https://github.com/avenga/couper/releases/download/v1.7.0/couper-v1.7.0-macos-amd64.zip"
-        sha256 "4d6192fe38714b29e5d43f2527604f5f2cd94fea978dc5006833b1fda277f436"
+        url "https://github.com/avenga/couper/releases/download/v1.7.1/couper-v1.7.1-macos-amd64.zip"
+        sha256 "086b2a141cb85a799eed1158a085f61b1f355a6d4dda263be5d5dccbe746e376"
 
         def install
           bin.install "couper"
@@ -28,16 +26,16 @@ class Couper < Formula
 
     on_linux do
       if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-        url "https://github.com/avenga/couper/releases/download/v1.7.0/couper-v1.7.0-linux-arm64.tar.gz"
-        sha256 "3090fd2ddf9d06f88533e9f23494e95dc9c11afde93a1a5348c07080015a0a84"
+        url "https://github.com/avenga/couper/releases/download/v1.7.1/couper-v1.7.1-linux-arm64.zip"
+        sha256 "4656d67ae24c89a1382e0bc3437e43fa3774e65015f11024f25f09ba54f5a2e9"
 
         def install
           bin.install "couper"
         end
       end
       if Hardware::CPU.intel?
-        url "https://github.com/avenga/couper/releases/download/v1.7.0/couper-v1.7.0-linux-amd64.tar.gz"
-        sha256 "22e5c961a78fa86cd400804837aabef6736a54d487a4ab513104c490b06b0d21"
+        url "https://github.com/avenga/couper/releases/download/v1.7.1/couper-v1.7.1-linux-amd64.zip"
+        sha256 "e9ddbc52dadf24a244707d3439960cb72eea345a3eddb9b8f2ef5ee0f5a576d1"
 
         def install
           bin.install "couper"
@@ -49,9 +47,3 @@ class Couper < Formula
       system "#{bin}/couper version"
     end
   end
-
-# def install
-#     ENV["CGO_ENABLED"] = "1"
-#
-#     system "go", "build", *std_go_args, "-ldflags", "-s -w"
-# end
