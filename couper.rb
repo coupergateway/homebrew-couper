@@ -26,7 +26,7 @@ class Couper < Formula
 
     on_linux do
       if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-        url "https://github.com/avenga/couper/releases/download/v1.7.2/couper-v1.7.2-linux-arm64.zip"
+        url "https://github.com/avenga/couper/releases/download/v1.7.2/couper-v1.7.2-linux-arm64.tar.gz"
         sha256 "c0420d20502bf4edec1d938b5a703a354ccc4c6c8c63a220279e3ad322099fce"
 
         def install
@@ -34,7 +34,7 @@ class Couper < Formula
         end
       end
       if Hardware::CPU.intel?
-        url "https://github.com/avenga/couper/releases/download/v1.7.2/couper-v1.7.2-linux-amd64.zip"
+        url "https://github.com/avenga/couper/releases/download/v1.7.2/couper-v1.7.2-linux-amd64.tar.gz"
         sha256 "a88426c6b8c92403cd74d142df98192f733709c404cab08f95051fc6a024d0c0"
 
         def install
