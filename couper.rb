@@ -2,21 +2,21 @@ class Couper < Formula
     desc "Couper is a lightweight open source API gateway designed to support developers in building and running API-driven Web projects."
     homepage "https://couper.io/"
     license "MIT"
-    version "v1.12.0"
+    version "v1.12.1"
     head "https://github.com/avenga/couper.git", branch: "master"
 
     on_macos do
       if Hardware::CPU.arm?
-        url "https://github.com/avenga/couper/releases/download/v1.12.0/couper-v1.12.0-macos-arm64.zip"
-        sha256 "a867296c648ae15d3cddb6299b924c1b6e5773b1d882339c1067f4b620ed2611"
+        url "https://github.com/avenga/couper/releases/download/v1.12.1/couper-v1.12.1-macos-arm64.zip"
+        sha256 "46ceb086808ed3cfa06d6af9f7eb5147219a6aa4a4fda714eaed9ef1f6caaabc"
 
         def install
           bin.install "couper"
         end
       end
       if Hardware::CPU.intel?
-        url "https://github.com/avenga/couper/releases/download/v1.12.0/couper-v1.12.0-macos-amd64.zip"
-        sha256 "c57c5e7482af6f3850f4006400fb5b359cd0fa7b71c03f57e549753c0002c43b"
+        url "https://github.com/avenga/couper/releases/download/v1.12.1/couper-v1.12.1-macos-amd64.zip"
+        sha256 "793d998f3ebd4d75ff4a4dab7e8562941cf191e0af80acd0cd1e4844ce3ae212"
 
         def install
           bin.install "couper"
@@ -26,16 +26,16 @@ class Couper < Formula
 
     on_linux do
       if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-        url "https://github.com/avenga/couper/releases/download/v1.12.0/couper-v1.12.0-linux-arm64.tar.gz"
-        sha256 "2f793e45c2084a246a4b37f8b9788fcffc5705ef26013cdb7f75fd315fa3fb97"
+        url "https://github.com/avenga/couper/releases/download/v1.12.1/couper-v1.12.1-linux-arm64.tar.gz"
+        sha256 "a8a1ad3cd3b35092965d709ab5d20ac67c613c159dee27abb6e6efdfa8e8116f"
 
         def install
           bin.install "couper"
         end
       end
       if Hardware::CPU.intel?
-        url "https://github.com/avenga/couper/releases/download/v1.12.0/couper-v1.12.0-linux-amd64.tar.gz"
-        sha256 "f928de721785d8f7facdb64830696d5facbbfe2228566a1871067545ac83d527"
+        url "https://github.com/avenga/couper/releases/download/v1.12.1/couper-v1.12.1-linux-amd64.tar.gz"
+        sha256 "f799f100e99a4ed2a3aadf570671874c0f6348a7ed994b97c90a01f120a5b78d"
 
         def install
           bin.install "couper"
