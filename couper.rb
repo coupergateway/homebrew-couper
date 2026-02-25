@@ -2,48 +2,29 @@ class Couper < Formula
     desc "Couper is a lightweight open source API gateway designed to support developers in building and running API-driven Web projects."
     homepage "https://couper.io/"
     license "MIT"
-    version "v1.13.2"
-    head "https://github.com/coupergateway/couper.git", branch: "master"
+    version "v1.14.0"
+    url "https://github.com/coupergateway/couper/archive/refs/tags/v1.14.0.tar.gz"
+    sha256 "ed9a60ddb900dbc60ee21e39fdb36ccdb4b72502458f030f4a57b7146efc0e1c"
+    head "https://github.com/coupergateway/couper.git", branch: "main"
 
-    on_macos do
-      if Hardware::CPU.arm?
-        url "https://github.com/coupergateway/couper/releases/download/v1.13.2/couper-v1.13.2-macos-arm64.zip"
-        sha256 "ab0f320d491a29eb9e1ff4e7ace0415d3b216f68e77eddb54ebccea03411c094"
+    depends_on "go" => :build
 
-        def install
-          bin.install "couper"
+    def install
+      build_time_str =
+        if ENV["SOURCE_DATE_EPOCH"]
+          Time.at(ENV["SOURCE_DATE_EPOCH"].to_i).utc.strftime("%F")
+        else
+          Time.now.utc.strftime("%F")
         end
-      end
-      if Hardware::CPU.intel?
-        url "https://github.com/coupergateway/couper/releases/download/v1.13.2/couper-v1.13.2-macos-amd64.zip"
-        sha256 "4de6a3a7c401009265c297e842393d09ad4ffcb104543e50b0bd91a587b03177"
-
-        def install
-          bin.install "couper"
-        end
-      end
-    end
-
-    on_linux do
-      if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-        url "https://github.com/coupergateway/couper/releases/download/v1.13.2/couper-v1.13.2-linux-arm64.tar.gz"
-        sha256 ""
-
-        def install
-          bin.install "couper"
-        end
-      end
-      if Hardware::CPU.intel?
-        url "https://github.com/coupergateway/couper/releases/download/v1.13.2/couper-v1.13.2-linux-amd64.tar.gz"
-        sha256 ""
-
-        def install
-          bin.install "couper"
-        end
-      end
+      ldflags = %W[
+        -X github.com/coupergateway/couper/utils.VersionName=#{version}
+        -X github.com/coupergateway/couper/utils.BuildName=702eb72
+        -X github.com/coupergateway/couper/utils.BuildDate=#{build_time_str}
+      ]
+      system "go", "build", *std_go_args(ldflags:)
     end
 
     test do
-      system "#{bin}/couper version"
+      system bin/"couper", "version"
     end
   end
