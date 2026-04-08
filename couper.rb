@@ -2,9 +2,9 @@ class Couper < Formula
     desc "Couper is a lightweight open source API gateway designed to support developers in building and running API-driven Web projects."
     homepage "https://couper.io/"
     license "MIT"
-    version "v1.14.0"
-    url "https://github.com/coupergateway/couper/archive/refs/tags/v1.14.0.tar.gz"
-    sha256 "ed9a60ddb900dbc60ee21e39fdb36ccdb4b72502458f030f4a57b7146efc0e1c"
+    version "v1.14.1"
+    url "https://github.com/coupergateway/couper/archive/refs/tags/v1.14.1.tar.gz"
+    sha256 "c5cf131c43e1310839a590a87c1b5c506d49e4f735e28b1713dce22a012d9f6b"
     head "https://github.com/coupergateway/couper.git", branch: "main"
 
     depends_on "go" => :build
@@ -18,7 +18,7 @@ class Couper < Formula
         end
       ldflags = %W[
         -X github.com/coupergateway/couper/utils.VersionName=#{version}
-        -X github.com/coupergateway/couper/utils.BuildName=702eb72
+        -X github.com/coupergateway/couper/utils.BuildName=1574b95
         -X github.com/coupergateway/couper/utils.BuildDate=#{build_time_str}
       ]
       system "go", "build", *std_go_args(ldflags:)
