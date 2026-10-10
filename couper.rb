@@ -4,7 +4,7 @@ class Couper < Formula
     license "MIT"
     version "v1.14.4"
     url "https://github.com/coupergateway/couper/archive/refs/tags/v1.14.4.tar.gz"
-    sha256 "5973b896fa74938bcd43fe2fff628a19fe967d1513c3a7db376d48534a28ace5"
+    sha256 "6a3fe21894345116cd58a8841dcba37083d64e53e8dbba23d6b18310cec78f0c"
     head "https://github.com/coupergateway/couper.git", branch: "main"
 
     depends_on "go" => :build
@@ -18,7 +18,7 @@ class Couper < Formula
         end
       ldflags = %W[
         -X github.com/coupergateway/couper/utils.VersionName=#{version}
-        -X github.com/coupergateway/couper/utils.BuildName=c9670da
+        -X github.com/coupergateway/couper/utils.BuildName=d323020
         -X github.com/coupergateway/couper/utils.BuildDate=#{build_time_str}
       ]
       system "go", "build", *std_go_args(ldflags:)
